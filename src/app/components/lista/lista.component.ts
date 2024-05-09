@@ -10,9 +10,9 @@ import { NgFor } from '@angular/common';
   styleUrl: './lista.component.scss',
 })
 export class ListaComponent {
-  @Input() editoras: any[]; // Defina a propriedade de entrada editoras
+  @Input() data: any[]; // Defina a propriedade de entrada editoras
 
   constructor() {
-    this.editoras = []; // Inicialize a propriedade editoras no construtor
+    this.data = []; // Inicialize a propriedade editoras no construtor
   }
 }

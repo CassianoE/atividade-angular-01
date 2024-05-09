@@ -7,12 +7,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of editoras">
+    @for (item of data; track $index) {
+    <tr>
       <!-- Use editoras em vez de lista -->
       <td>{{ item.id }}</td>
       <!-- Use td em vez de th para o ID -->
       <td>{{ item.nome }}</td>
       <td><button>Editar</button></td>
     </tr>
+    }
   </tbody>
 </table>

@@ -11,9 +11,9 @@ import { ListaComponent } from '../../lista/lista.component';
 })
 export class EditoralistComponent {
   editoras = [
-    { id: 1, nome: 'Editora A' },
-    { id: 2, nome: 'Editora B' },
-    { id: 3, nome: 'Editora C' },
+    { id: 1, nome: 'Editora Abril' },
+    { id: 2, nome: 'Editora Record' },
+    { id: 3, nome: 'Editora Nova Fronteira' },
     // Adicione mais editoras conforme necessário
   ];
 }
