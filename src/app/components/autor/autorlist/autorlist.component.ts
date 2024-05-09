@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { MenuComponent } from '../../menu/menu.component';
 
 @Component({
   selector: 'app-autorlist',
   standalone: true,
-  imports: [],
+  imports: [MenuComponent],
   templateUrl: './autorlist.component.html',
-  styleUrl: './autorlist.component.scss'
+  styleUrl: './autorlist.component.scss',
 })
-export class AutorlistComponent {
-
-}
+export class AutorlistComponent {}
