@@ -4,7 +4,7 @@
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Acao</th>
-      <td><button (click)="adicionarNovoItem()">Novo</button></td>
+      <td><button type="button" class="btn btn-primary">Novo</button></td>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
       <td>{{ item.id }}</td>
       <!-- Use td em vez de th para o ID -->
       <td>{{ item.nome }}</td>
-      <td><button>Editar</button></td>
+      <td><button type="button" class="btn btn-primary">Editar</button></td>
     </tr>
     }
   </tbody>
