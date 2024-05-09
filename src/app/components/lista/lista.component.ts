@@ -15,4 +15,11 @@ export class ListaComponent {
   constructor() {
     this.data = []; // Inicialize a propriedade editoras no construtor
   }
+
+  adicionarNovoItem() {
+    const novoItem = window.prompt('Nome da editora a ser adicionada');
+    if (novoItem) {
+      this.data.push({ id: this.data.length + 1, nome: novoItem });
+    }
+  }
 }
