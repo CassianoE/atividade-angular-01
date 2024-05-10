@@ -32,13 +32,8 @@ export class ListaComponent {
   modalRef!: MdbModalRef<any>; //conseguir fechar a modal aberta pelo TS
 
   abrirModalEditar() {
-    alert('Modal aberto');
+    this.modalRef = this.modalService.open(this.modalDetalhe);
   }
 
-  adicionarNovoItem() {
-    const novoItem = window.prompt('Nome da editora a ser adicionada');
-    if (novoItem) {
-      this.data.push({ id: this.data.length + 1, nome: novoItem });
-    }
-  }
+  salvarItem() {}
 }
