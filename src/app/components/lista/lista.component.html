@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="d-flex m-5 justify-content-between">
+    <h4>{{ nomeDaLista }}</h4>
+    <button type="button" class="btn btn-primary">novo</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr class="row">
+        <th class="col-1">ID</th>
+        <th class="col-9">Nome</th>
+        <th class="col-2">Acao</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of data; track $index) {
+      <tr class="row">
+        <!-- Use editoras em vez de lista -->
+        <td class="col-1">{{ item.id }}</td>
+        <!-- Use td em vez de th para o ID -->
+        <td class="col-9">{{ item.nome }}</td>
+        <td class="col-2 d-flex">
+          <button (click)="abrirModalEditar()" type="button" class="btn btn-primary mr-3">Editar</button>
+          <button type="button" class="btn btn-danger">Deletar</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+    <ng-template id="modal" #modal>
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Cadastrar {{ nomeDaLista }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modalRef.close()"
+          ></button>
+      </div>
+
+      <div class="modal-body">
+       
+      </div>
+
+    </ng-template>
+</div>
