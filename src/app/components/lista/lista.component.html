@@ -26,7 +26,13 @@
           >
             Editar
           </button>
-          <button type="button" class="btn btn-danger">Deletar</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteById(data)"
+          >
+            Deletar
+          </button>
         </td>
       </tr>
       }
@@ -51,17 +57,16 @@
       <form>
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nome"
-            formControlName="nome"
-            required
-          />
+          <input type="text" id="novaEntrada" formControlName="nome" />
         </div>
 
-        <button type="button" class="btn btn-primary" (click)="salvarItem()">
-          {{ nomeDaLista === "Cadastrar" ? "Cadastrar" : "Salvar" }}
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="btn-salvar"
+          (click)="AtualizarItem()"
+        >
+          salvar Item
         </button>
       </form>
     </div>

@@ -5,18 +5,20 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { EditoralistComponent } from '../editora/editoralist/editoralist.component';
+
 import { CommonModule, NgFor } from '@angular/common';
 import {
   MdbModalModule,
   MdbModalRef,
   MdbModalService,
 } from 'mdb-angular-ui-kit/modal';
+import { Data } from '@angular/router';
+import { Livro } from '../../models/livro/livro';
 
 @Component({
   selector: 'app-lista',
   standalone: true,
-  imports: [EditoralistComponent, NgFor, CommonModule, MdbModalModule],
+  imports: [NgFor, CommonModule, MdbModalModule],
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.scss',
 })
@@ -31,9 +33,19 @@ export class ListaComponent {
   @ViewChild('modal') modalDetalhe!: TemplateRef<any>; //enxergar o bloco de html da modal
   modalRef!: MdbModalRef<any>; //conseguir fechar a modal aberta pelo TS
 
+  deleteById(data: Data) {
+    let indice = this.data.findIndex((x) => {
+      return x.id == data['id'];
+    });
+    this.data.splice(indice, 1);
+  }
+
   abrirModalEditar() {
     this.modalRef = this.modalService.open(this.modalDetalhe);
   }
 
-  salvarItem() {}
+  AtualizarItem() {
+    // Fechar a modal
+    this.modalRef.close();
+  }
 }
