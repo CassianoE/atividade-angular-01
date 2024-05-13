@@ -26,16 +26,16 @@ export class ListaComponent {
   @Input() data: any[]; // Defina a propriedade de entrada editoras
   @Input('nomeDaLista') nomeDaLista: string = '';
   constructor() {
-    this.data = []; // Inicialize a propriedade editoras no construtor
+    this.data = [];
   }
 
   modalService = inject(MdbModalService); // conseguir abrir a modal pelo TS
   @ViewChild('modal') modalDetalhe!: TemplateRef<any>; //enxergar o bloco de html da modal
   modalRef!: MdbModalRef<any>; //conseguir fechar a modal aberta pelo TS
 
-  deleteById(data: Data) {
+  deleteById(data: { id: number }) {
     let indice = this.data.findIndex((x) => {
-      return x.id == data['id'];
+      return x.id === data.id;
     });
     this.data.splice(indice, 1);
   }
