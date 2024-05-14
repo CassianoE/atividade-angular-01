@@ -1,7 +1,7 @@
 <div class="container">
   <div class="d-flex m-5 justify-content-between">
     <h4>{{ nomeDaLista }}</h4>
-    <button type="button" class="btn btn-primary">novo</button>
+    <button type="button" class="btn btn-primary" (click)="abrirModalNovo()">novo</button>
   </div>
   <table class="table">
     <thead>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (item of data; track $index) {
+      @for (item of itens; track $index) {
       <tr class="row">
         <!-- Use editoras em vez de lista -->
         <td class="col-1">{{ item.id }}</td>
@@ -22,14 +22,14 @@
           <button
             type="button"
             class="btn btn-primary mr-3"
-            (click)="abrirModalEditar()"
+            (click)="abrirModalEditar(item.id)"
           >
             Editar
           </button>
           <button
             type="button"
             class="btn btn-danger"
-            (click)="deleteById({ id: item.id })"
+            (click)="deleteById( item.id )"
           >
             Deletar
           </button>
@@ -57,14 +57,46 @@
       <form>
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" id="novaEntrada" formControlName="nome" />
+          <input type="text" id="novaEntrada" name="campoAtualizado" [(ngModel)]="campoAtualizado"/>
         </div>
 
         <button
           type="button"
           class="btn btn-primary"
           id="btn-salvar"
-          (click)="AtualizarItem()"
+          (click)="AtualizarItem( idItemSalvar )"
+        >
+          salvar Item
+        </button>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template id="modalnovo" #modalnovo>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">
+        {{ nomeDaLista }}
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+      ></button>
+    </div>
+
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" name="campoNovo" [(ngModel)]="campoNovo"/>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="btn-salvar"
+          (click)="salvarItem()"
         >
           salvar Item
         </button>
