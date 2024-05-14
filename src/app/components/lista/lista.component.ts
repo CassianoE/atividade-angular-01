@@ -73,10 +73,11 @@ export class ListaComponent {
 
     this.indiceAtualizando = indice;
 
-    alert(this.campoAtualizado)
+    
     if (this.itens[indice]) {
       this.itens[indice].nome = this.campoAtualizado;
     }
+    this.campoAtualizado = '';
     this.modalRef.close();
   }
 }
